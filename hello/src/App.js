@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import Search from "./Search";
 function App() {
+  const [likes, setLikes] = useState(0);
+  function increment() {
+    setLikes(likes + 1);
+    console.log("likes is " + likes);
+  }
+  function decrement() {
+    setLikes(likes - 1);
+    console.log("likes is " + likes);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello, i`m here
-        </p>
-        <a
-          className="App-link"
-          href="https://github.com/olehvolodko"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Future updates
-        </a>
-      </header>
+      Hello!
+      <h1>{likes}</h1>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+      <Search />
+      <Search />
+      <Search />
+      <Search />
     </div>
   );
 }

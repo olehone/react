@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Styles/App.css";
+import "../Styles/App.css";
 
 function Likes() {
   const [likes, setLikes] = useState(0);
@@ -19,13 +19,9 @@ function Likes() {
 
   return (
     <div className="Likes">
-      <button className="btn btn-light like" onClick={increment}>
-        <FontAwesomeIcon icon={faThumbsUp} />
-      </button>
-      <h1>{likes}</h1>
-      <button className="btn btn-light dislike" onClick={decrement}>
-        <FontAwesomeIcon icon={faThumbsDown} />
-      </button>
+      <button className="btn btn-light like" onClick={increment}>👍</button>
+      <div className="btn">{likes}</div>
+      <button className="btn btn-light dislike" onClick={decrement}>👎</button>
     </div>
   );
 }

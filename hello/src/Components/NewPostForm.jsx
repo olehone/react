@@ -7,10 +7,11 @@ function NewPostForm({ onAddPost, length }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newPost = {
-      id: length + 1, // Generate a unique ID, you can use a library like uuid
+      id: length + 1,
       title: title,
       description: description,
-      comments: [] // You can start with an empty array of comments
+      comments: [],
+      countOfLikes:0,
     };
     onAddPost(newPost);
     setTitle("");

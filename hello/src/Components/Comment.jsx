@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-
-function Comment() {
-  const [text, setText] = useState("Write!");
+function Comment({comment}) {
   return (
     <div className="Comment">
-      <strong>{text}</strong>
-      <input type="text" value = {text}
-      onChange={event => setText(event.target.value)}/>
+      <div className="username">{comment.username}</div>
+      <div className="comment">{comment.text}</div>
     </div>
   );
 }

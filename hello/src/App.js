@@ -10,9 +10,9 @@ function App() {
       id: 1,
       title: "HTML",
       description: "Yee, i`m a html-programmer",
-      comments: [{ id: 1, user: "Frederico13", text: "i think it`s worse, no?" },
-      { id: 2, user: "Peter228", text: "cool" },
-      { id: 3, user: "Iloveminecraft", text: "hey!" },],
+      comments: [{ id: 1, username: "Frederico13", text: "i think it`s worse, no?" },
+      { id: 2, username: "Peter228", text: "cool" },
+      { id: 3, username: "Iloveminecraft", text: "hey!" },],
     },
     {
       id: 2,
@@ -20,10 +20,16 @@ function App() {
       description:
         "Yee, it`s something about internet like .com .gov .org and more, i know it",
       comments: [
-        { id: 1, user: "Frederico13", text: "i think it`s worse, no?" },
-        { id: 2, user: "Peter228", text: "cool" },
-        { id: 3, user: "Iloveminecraft", text: "hey!" },
+        { id: 1, username: "Frederico13", text: "i think it`s worse, no?" },
+        { id: 2, username: "Peter228", text: "cool" },
+        { id: 3, username: "Iloveminecraft", text: "hey!" },
       ],
+    },
+    {
+      id:3,
+      title: "test",
+      description: "test description",
+      comments:[],
     },
   ]);
 

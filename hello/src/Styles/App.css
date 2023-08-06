@@ -57,3 +57,13 @@ textarea{
   max-width: 90%;
   height: 100px;
 }
+.comments{
+  border: 2px solid #8793bb;
+  border-radius: 7px;
+}
+.title{
+  border-bottom: 1px solid #697cbb; 
+}
+.username{
+  font-weight: bold;
+}

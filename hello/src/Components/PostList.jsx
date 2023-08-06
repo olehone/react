@@ -4,7 +4,7 @@ function PostList({ posts }) {
   return (
     <div className="PostList">
       <h1 style={{ textAlign: "center" }}>List of posts</h1>
-      {posts.map((post)=> <Post post = {post} key = {post.id}/>)}
+      {posts.map((post)=> <Post post = {post} comments = {post.comments} key = {post.id}/>)}
     </div>
   );
 }

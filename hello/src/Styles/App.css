@@ -1,7 +1,7 @@
 *{
   margin: 2px;
   padding: 3px;
-
+  word-wrap: break-word;
 }
 #root{
 
@@ -38,4 +38,22 @@
   margin: 0 auto;
   
   background-color: #dfd2d6;
+}
+.form{
+  margin: 10px;
+}
+input{
+  margin: 10px;
+}
+textarea{
+  margin: 10px;
+}
+.narrower{
+  width: 500px;
+  max-width: 50%;
+}
+textarea{
+  width: 1200px;
+  max-width: 90%;
+  height: 100px;
 }

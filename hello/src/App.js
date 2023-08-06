@@ -13,6 +13,7 @@ function App() {
       comments: [{ id: 1, username: "Frederico13", text: "i think it`s worse, no?" },
       { id: 2, username: "Peter228", text: "cool" },
       { id: 3, username: "Iloveminecraft", text: "hey!" },],
+      countOfLikes:4,
     },
     {
       id: 2,
@@ -24,12 +25,14 @@ function App() {
         { id: 2, username: "Peter228", text: "cool" },
         { id: 3, username: "Iloveminecraft", text: "hey!" },
       ],
+      countOfLikes:2,
     },
     {
       id:3,
       title: "test",
       description: "test description",
       comments:[],
+      countOfLikes:1,
     },
   ]);
 

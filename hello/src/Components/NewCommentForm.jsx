@@ -1,28 +1,25 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import addComment from "../App";
-function NewCommentForm( length, postId ) {
+function NewCommentForm({ length, postId, addComment }) {
   const [text, setText] = useState("");
- console.log(11111);
-  const handleSubmit = (e) => {
-    console.log(1111113);
+
+  const handleCommentSubmit = (e) => {
     e.preventDefault();
     const newComment = {
       id: length + 1,
       username: "pedro",
       text: text,
     };
-    console.log(111211);
-    console.log(newComment);
-    addComment(postId,newComment);
-    console.log(11221111);
+
+    addComment(postId, newComment);
 
     setText("");
   };
+
   return (
     <div className="form-group">
       <h2>Add a new Comment</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleCommentSubmit}>
         <textarea
           className="form-control"
           placeholder="text"
@@ -40,4 +37,5 @@ function NewCommentForm( length, postId ) {
     </div>
   );
 }
+
 export default NewCommentForm;

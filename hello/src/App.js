@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Comment from "./Components/Comment";
 import Likes from "./Components/Likes";
 import "./Styles/App.css";
+import { ReactDOM } from "react";
 import NewPostForm from "./Components/NewPostForm";
 import PostList from "./Components/PostList";
 function rand(min, max) {
@@ -41,7 +42,7 @@ function App() {
     },
   ]);
 
-  const addComment = (postId, newComment) => {
+  function addComment (postId, newComment) {
     const updatedPost = posts.map((post) => {
       if (post.id === postId) {
         return {
@@ -51,9 +52,6 @@ function App() {
       }
       return post;
     });
-    console.log(12);
-    console.log(updatedPost);
-    console.log(newComment);
     setPosts(updatedPost);
   };
   const addPost = (newPost) => {
@@ -62,10 +60,8 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={addComment}>Add Comment</button>
-
       <h1 style={{ textAlign: "center" }}>React Blog App</h1>
-      <PostList posts={posts} onAddComment={addComment} />
+      <PostList posts={posts} addComment={addComment} />
       <NewPostForm onAddPost={addPost} length={posts.length} />
     </div>
   );

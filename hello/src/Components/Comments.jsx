@@ -4,7 +4,6 @@ function CheckComentsExists({ comments }) {
   // comments.map((comment)=><Comment />);
 }
 function Comments({ comments }) {
-  console.log({ comments });
   if(comments.length>0){
     return (
       <div className="comments">

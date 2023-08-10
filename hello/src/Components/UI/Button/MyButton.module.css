@@ -4,4 +4,8 @@
   border: 1px solid teal;
   font-size: 15px;
   cursor: pointer;
+  width: 20px;
+  height: 20px;
+  min-width: 10%;
+  min-height: 20%;
 }

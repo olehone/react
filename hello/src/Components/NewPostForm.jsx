@@ -1,5 +1,7 @@
 import React from "react";
+import MyInput from "./UI/Input/MyInput.jsx";
 import { useState } from "react";
+import MyButton from "./UI/Button/MyButton.jsx";
 function NewPostForm({ onAddPost, length }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -11,7 +13,7 @@ function NewPostForm({ onAddPost, length }) {
       title: title,
       description: description,
       comments: [],
-      countOfLikes:0,
+      countOfLikes: 0,
     };
     onAddPost(newPost);
     setTitle("");
@@ -22,20 +24,25 @@ function NewPostForm({ onAddPost, length }) {
     <div className="form-group">
       <h2>Add a New Post</h2>
       <form onSubmit={handleSubmit}>
-        <input
-        className="form-control narrower"
+        <MyInput
+          className="form-control narrower"
           type="text"
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <textarea
-        className="form-control"
+          className="form-control"
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button style = {{margin: 10}} className= "btn btn-primary"type="submit">Add Post</button>
+        <MyButton
+        props={{ text: "add"}}
+          type={"submit"}
+          text = {"Add post pls"}
+        >
+        </MyButton>
       </form>
     </div>
   );

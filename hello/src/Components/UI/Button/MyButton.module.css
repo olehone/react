@@ -1,0 +1,7 @@
+.mybtn{
+  margin: 10px;
+  padding: 5px, 10px;
+  border: 1px solid teal;
+  font-size: 15px;
+  cursor: pointer;
+}

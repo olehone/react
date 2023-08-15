@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Comment from "./Components/Comment";
 import Likes from "./Components/Likes";
 import "./Styles/App.css";
+// import "./Components/UI/CheckBox/MyCheckBox.module.css"
 import { ReactDOM } from "react";
 import NewPostForm from "./Components/NewPostForm";
 import PostList from "./Components/PostList";
+import MySwitch from "./Components/UI/Switch/MySwitch";
 function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -63,9 +65,11 @@ function App() {
       <h1 style={{ textAlign: "center" }}>React Blog App</h1>
       <PostList posts={posts} addComment={addComment} />
       <NewPostForm onAddPost={addPost} length={posts.length} />
-      <div class="switch-container">
-</div>
-
+      <label class="switch">
+  <input type="checkbox"/>
+  <span class="slider round"></span>
+</label>
+      <MySwitch text={"hello"} initialCheck = {false}/>
     </div>
   );
 }

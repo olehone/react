@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/App.css";
-import MyCheckBox from "./UI/CheckBox/MyCheckBox";
+import MyCheckBox from "./UI/Switch/MySwitch";
 
 function Likes({countOfLikes}) {
   const [likes, setLikes] = useState(countOfLikes);

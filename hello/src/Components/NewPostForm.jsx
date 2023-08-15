@@ -38,7 +38,6 @@ function NewPostForm({ onAddPost, length }) {
           onChange={(e) => setDescription(e.target.value)}
         />
         <MyButton
-        props={{ text: "add"}}
           type={"submit"}
           text = {"Add post pls"}
         >

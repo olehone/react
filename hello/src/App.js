@@ -63,6 +63,9 @@ function App() {
       <h1 style={{ textAlign: "center" }}>React Blog App</h1>
       <PostList posts={posts} addComment={addComment} />
       <NewPostForm onAddPost={addPost} length={posts.length} />
+      <div class="switch-container">
+</div>
+
     </div>
   );
 }

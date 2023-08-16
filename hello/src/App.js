@@ -8,6 +8,7 @@ import NewPostForm from "./Components/NewPostForm";
 import PostList from "./Components/PostList";
 import MySwitch from "./Components/UI/Switch/MySwitch";
 import NotAllThreeAtOnce from "./Components/NotAllThreeAtOnce";
+import MyButton from "./Components/UI/Button/MyButton";
 function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -18,9 +19,9 @@ function App() {
       title: "HTML",
       description: "Yee, i`m a html-programmer",
       comments: [
-        { id: 1, username: "Frederico13", text: "i think it`s worse, no?" },
-        { id: 2, username: "Peter228", text: "cool" },
-        { id: 3, username: "Iloveminecraft", text: "hey!" },
+        { id: 1, username: "Frederico13", text: "i think it`s worse, no?", countOfLikes: 13},
+        { id: 2, username: "Peter228", text: "cool", countOfLikes: 2 },
+        { id: 3, username: "Iloveminecraft", text: "hey!", countOfLikes: 5 },
       ],
       countOfLikes: 4,
     },
@@ -30,9 +31,9 @@ function App() {
       description:
         "Yee, it`s something about internet like .com .gov .org and more, i know it",
       comments: [
-        { id: 1, username: "Frederico13", text: "i think it`s worse, no?" },
-        { id: 2, username: "Peter228", text: "cool" },
-        { id: 3, username: "Iloveminecraft", text: "hey!" },
+        { id: 1, username: "Frederico13", text: "i think it`s worse, no?" , countOfLikes: 5},
+        { id: 2, username: "Peter228", text: "cool" , countOfLikes: 5},
+        { id: 3, username: "Iloveminecraft", text: "hey!" , countOfLikes: 5},
       ],
       countOfLikes: 2,
     },
@@ -44,8 +45,8 @@ function App() {
       countOfLikes: 1,
     },
   ]);
-
-  function addComment (postId, newComment) {
+  function addComment(postId, newComment) {
+    console.log("hello");
     const updatedPost = posts.map((post) => {
       if (post.id === postId) {
         return {
@@ -55,17 +56,21 @@ function App() {
       }
       return post;
     });
+    console.log(updatedPost);
     setPosts(updatedPost);
-  };
+  }
   const addPost = (newPost) => {
     setPosts([...posts, newPost]);
   };
-
   return (
     <div className="App">
-      <NotAllThreeAtOnce text1 = {"Вчитись в політехніці"} text2 = {"Мати стійке психічне здоров'я"} text3 = {"Бути успішним"}/>
+      <NotAllThreeAtOnce
+        text1={"Вчитись в політехніці"}
+        text2={"Мати стійке психічне здоров'я"}
+        text3={"Бути успішним"}
+      />
       <h1 style={{ textAlign: "center" }}>React Blog App</h1>
-      <PostList posts={posts} addComment={addComment} />
+      <PostList addComment = {addComment} posts={posts} />
       <NewPostForm onAddPost={addPost} length={posts.length} />
     </div>
   );

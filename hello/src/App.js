@@ -7,6 +7,7 @@ import { ReactDOM } from "react";
 import NewPostForm from "./Components/NewPostForm";
 import PostList from "./Components/PostList";
 import MySwitch from "./Components/UI/Switch/MySwitch";
+import NotAllThreeAtOnce from "./Components/NotAllThreeAtOnce";
 function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -62,14 +63,10 @@ function App() {
 
   return (
     <div className="App">
+      <NotAllThreeAtOnce text1 = {"Грати в доту"} text2 = {"Мати стійке психічне здоров'я"} text3 = {"Не бути токсичним"}/>
       <h1 style={{ textAlign: "center" }}>React Blog App</h1>
       <PostList posts={posts} addComment={addComment} />
       <NewPostForm onAddPost={addPost} length={posts.length} />
-      <label class="switch">
-  <input type="checkbox"/>
-  <span class="slider round"></span>
-</label>
-      <MySwitch text={"hello"} initialCheck = {false}/>
     </div>
   );
 }

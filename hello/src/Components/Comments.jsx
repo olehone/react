@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Comment from "./Comment";
-function CheckComentsExists({ comments }) {
-  // comments.map((comment)=><Comment />);
-}
+
 function Comments({ comments }) {
   if(comments.length>0){
     return (

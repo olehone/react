@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import classes from "./MySwitch.module.css";
 
-function MySwitch({ initialCheck, text, onSwitchChange }) {
-  const [isCheck, change] = useState(initialCheck);
+function MySwitchExternalControl({ exIsCheck, exChange, text, onSwitchChange }) {
+  const [isCheck, change] = ;
   
   function switchChange() {
     if (onSwitchChange) {
@@ -24,4 +24,4 @@ function MySwitch({ initialCheck, text, onSwitchChange }) {
   );
 }
 
-export default MySwitch;
+export default MySwitchExternalControl;

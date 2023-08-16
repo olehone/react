@@ -8,6 +8,7 @@ function NewPostForm({ onAddPost, length }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(121234)
     const newPost = {
       id: length + 1,
       title: title,
@@ -15,8 +16,13 @@ function NewPostForm({ onAddPost, length }) {
       comments: [],
       countOfLikes: 0,
     };
+    console.log("description:" +description)
+    
+    console.log("title:" + title)
+
     onAddPost(newPost);
     setTitle("");
+    console.log("title:" + title)
     setDescription("");
   };
 
@@ -25,7 +31,6 @@ function NewPostForm({ onAddPost, length }) {
       <h2>Add a New Post</h2>
       <form onSubmit={handleSubmit}>
         <MyInput
-          className="form-control narrower"
           type="text"
           placeholder="Title"
           value={title}

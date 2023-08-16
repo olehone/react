@@ -63,7 +63,7 @@ function App() {
 
   return (
     <div className="App">
-      <NotAllThreeAtOnce text1 = {"Грати в доту"} text2 = {"Мати стійке психічне здоров'я"} text3 = {"Не бути токсичним"}/>
+      <NotAllThreeAtOnce text1 = {"Вчитись в політехніці"} text2 = {"Мати стійке психічне здоров'я"} text3 = {"Бути успішним"}/>
       <h1 style={{ textAlign: "center" }}>React Blog App</h1>
       <PostList posts={posts} addComment={addComment} />
       <NewPostForm onAddPost={addPost} length={posts.length} />

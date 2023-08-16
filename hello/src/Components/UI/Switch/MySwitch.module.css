@@ -6,6 +6,10 @@
   background-color: #d6e4d7;
 }
 
+.text{
+  margin: 5px;
+  padding: 5px;
+}
 .switch {
   position: relative;
   display: inline-block;

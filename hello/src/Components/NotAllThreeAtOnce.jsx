@@ -39,30 +39,49 @@ function NotAllThreeAtOnce({ text1, text2, text3 }) {
   }
 
   return (
-    <div >
+    <div>
       <div className={classes.container}>
-        {text1}
+        <div className={classes.text}>
+          {text1}
+          </div>
+          <div className={classes.right}>
+            <label className={classes.switch}>
+              <input
+                type="checkbox"
+                checked={isCheck1}
+                onChange={switchChange1}
+              />
+              <span className={`${classes.slider} ${classes.round}`}></span>
+            </label>
+          </div>
+        
+      </div>
+      <div className={classes.container}>
+      <div className={classes.text}>
+          {text2}
+          </div>
         <div className={classes.right}>
           <label className={classes.switch}>
-            <input type="checkbox" checked={isCheck1} onChange={switchChange1} />
+            <input
+              type="checkbox"
+              checked={isCheck2}
+              onChange={switchChange2}
+            />
             <span className={`${classes.slider} ${classes.round}`}></span>
           </label>
         </div>
       </div>
       <div className={classes.container}>
-        {text2}
+      <div className={classes.text}>
+          {text3}
+          </div>
         <div className={classes.right}>
           <label className={classes.switch}>
-            <input type="checkbox" checked={isCheck2} onChange={switchChange2} />
-            <span className={`${classes.slider} ${classes.round}`}></span>
-          </label>
-        </div>
-      </div>
-      <div className={classes.container}>
-        {text3}
-        <div className={classes.right}>
-          <label className={classes.switch}>
-            <input type="checkbox" checked={isCheck3} onChange={switchChange3} />
+            <input
+              type="checkbox"
+              checked={isCheck3}
+              onChange={switchChange3}
+            />
             <span className={`${classes.slider} ${classes.round}`}></span>
           </label>
         </div>

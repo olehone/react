@@ -4,16 +4,14 @@ import Comments from "./Comments";
 import NewCommentForm from "./NewCommentForm";
 import MyButton from "./UI/Button/MyButton.jsx";
 
-function Post({ post , addComment}) {
-  const comments = post.comments;
-  return (
+function Post({ post , addComment, changeCountOfLikes}) {  return (
     <div className="Post">
       <strong>
         {post.id}. "{post.title}"
       </strong>
       <div>{post.description}</div>
-      <Likes countOfLikes={post.countOfLikes} />
-      <Comments comments={post.comments} />
+      <Likes changeCountOfLikes = {changeCountOfLikes} countOfLikes={post.countOfLikes} postId ={post.id}/>
+      <Comments changeCountOfLikes ={changeCountOfLikes} comments={post.comments} postId ={post.id} />
       <NewCommentForm
         addComment={addComment}
         length={post.comments.length}

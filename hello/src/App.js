@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Comment from "./Components/Comment";
 import Likes from "./Components/Likes";
 import "./Styles/App.css";
@@ -81,10 +81,10 @@ function App() {
             }
             return comment;
           });
-          console.log(updatedComments)
+          console.log(updatedComments);
           return {
             ...post,
-            comments: updatedComments ,
+            comments: updatedComments,
           };
         }
         return post;
@@ -110,24 +110,44 @@ function App() {
     setPosts([...posts, newPost]);
   };
   const [selectedSort, setSelectedSort] = useState("");
-  const sortList = (value) => {
-    console.log("сортуємо");
-    setSelectedSort(value);
-    if (value === "likes") {
-      setPosts([...posts].sort((a, b) => b.countOfLikes - a.countOfLikes));
-      console.log(posts);
-      return;
+
+  const sortedPost = useMemo(() => {
+    console.log("sortedddd!");
+    console.log(selectedSort);
+    if (!selectedSort) {
+      return posts;
     }
-    if (value === "title") {
-      setPosts([...posts].sort((a, b) => a.title.localeCompare(b.title)));
-      return;
+    if (selectedSort === "likes") {
+      console.log([...posts].sort((a, b) => b.countOfLikes - a.countOfLikes));
+      return [...posts].sort((a, b) => b.countOfLikes - a.countOfLikes);
     }
-    if (value === "description") {
-      setPosts(
-        [...posts].sort((a, b) => a.description.localeCompare(b.description))
+    if (selectedSort === "title") {
+      return [...posts].sort((a, b) => a.title.localeCompare(b.title));
+    }
+    if (selectedSort === "description") {
+      return [...posts].sort((a, b) =>
+        a.description.localeCompare(b.description)
       );
-      return;
     }
+    return posts;
+  }, [selectedSort, posts]);
+  const sortList = (value) => {
+    setSelectedSort(value);
+    // if (value === "likes") {
+    //   setPosts([...posts].sort((a, b) => b.countOfLikes - a.countOfLikes));
+    //   console.log(posts);
+    //   return;
+    // }
+    // if (value === "title") {
+    //   setPosts([...posts].sort((a, b) => a.title.localeCompare(b.title)));
+    //   return;
+    // }
+    // if (value === "description") {
+    //   setPosts(
+    //     [...posts].sort((a, b) => a.description.localeCompare(b.description))
+    //   );
+    //   return;
+    // }
   };
   return (
     <div className="App">
@@ -138,7 +158,7 @@ function App() {
       />
       <h1 style={{ textAlign: "center" }}>React Blog App</h1>
       <MySelect
-        onChange={sortList}
+        onChange={setSelectedSort}
         value={selectedSort}
         defaultTitle={"Сортування"}
         options={[
@@ -150,7 +170,7 @@ function App() {
       <PostList
         changeCountOfLikes={changeCountOfLikes}
         addComment={addComment}
-        posts={posts}
+        posts={sortedPost}
       />
       <NewPostForm onAddPost={addPost} length={posts.length} />
     </div>

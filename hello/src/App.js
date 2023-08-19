@@ -9,10 +9,12 @@ import MySwitch from "./Components/UI/Switch/MySwitch";
 import NotAllThreeAtOnce from "./Components/NotAllThreeAtOnce";
 import MyButton from "./Components/UI/Button/MyButton";
 import MySelect from "./Components/UI/Select/MySelect";
+import MyInput from "./Components/UI/Input/MyInput";
 function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 function App() {
+  const [searchInput, setSearchInput] = useState("");
   const [posts, setPosts] = useState([
     {
       id: 1,
@@ -113,7 +115,6 @@ function App() {
 
   const sortedPost = useMemo(() => {
     console.log("sortedddd!");
-    console.log(selectedSort);
     if (!selectedSort) {
       return posts;
     }
@@ -131,24 +132,12 @@ function App() {
     }
     return posts;
   }, [selectedSort, posts]);
-  const sortList = (value) => {
-    setSelectedSort(value);
-    // if (value === "likes") {
-    //   setPosts([...posts].sort((a, b) => b.countOfLikes - a.countOfLikes));
-    //   console.log(posts);
-    //   return;
-    // }
-    // if (value === "title") {
-    //   setPosts([...posts].sort((a, b) => a.title.localeCompare(b.title)));
-    //   return;
-    // }
-    // if (value === "description") {
-    //   setPosts(
-    //     [...posts].sort((a, b) => a.description.localeCompare(b.description))
-    //   );
-    //   return;
-    // }
-  };
+  const sortedAndSearchPosts = useMemo(() => {
+    console.log("search input is" +searchInput +".")
+    if (searchInput)
+      return sortedPost.filter((post) => post.title.toLowerCase().includes(searchInput.toLowerCase()));
+    return sortedPost;
+  }, [searchInput, sortedPost]);
   return (
     <div className="App">
       <NotAllThreeAtOnce
@@ -157,6 +146,13 @@ function App() {
         text3={"Бути успішним"}
       />
       <h1 style={{ textAlign: "center" }}>React Blog App</h1>
+      <NewPostForm onAddPost={addPost} length={posts.length} />
+      <MyInput
+        type="text"
+        placeholder="Search"
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}
+      />
       <MySelect
         onChange={setSelectedSort}
         value={selectedSort}
@@ -164,15 +160,14 @@ function App() {
         options={[
           { value: "likes", name: "По популярності" },
           { value: "title", name: "По заголовку" },
-          { value: "desctiption", name: "По опису" },
+          { value: "description", name: "По опису" },
         ]}
       />
       <PostList
         changeCountOfLikes={changeCountOfLikes}
         addComment={addComment}
-        posts={sortedPost}
+        posts={sortedAndSearchPosts}
       />
-      <NewPostForm onAddPost={addPost} length={posts.length} />
     </div>
   );
 }
